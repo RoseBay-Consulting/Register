@@ -9,7 +9,7 @@ struct LandDetails{
     bytes32 GovID;
     
     bytes32 PropertyID;
-    //proof of work 
+    //proof of ownership
     bytes32 Pow;
     //Registered_status shows land is verifed or not
     bool Registered_status;
@@ -111,6 +111,7 @@ mapping(
     //landdetails[_propertyID][trto_accountid].Registered_status = true;
     //now the Activestatus for this account is active 
     landdetails[_propertyID][trto_accountid].Activestatus = true;
+    landdetails[_propertyID][trto_accountid].Registered_status = true;
     //loading previous owner for this particular account 
     landdetails[_propertyID][trto_accountid].PreviousOwnerID = landdetails[_propertyID][trfrom_accountid].AccountID; 
     //require check whether tha land is properly transfered 
@@ -127,4 +128,5 @@ mapping(
             landdetails[_propertyID][trto_accountid].PreviousOwnerID
             );
     }    
+    
 } 
