@@ -95,8 +95,8 @@ mapping(
     }
     function transferOwner(address trfrom_accountid, address trto_accountid, bytes32 _propertyID, bytes32 _ownername, bytes32 _owneraddr, bytes32 _govID)public {
     //transfers only by owner of the asset
-    require(msg.sender==trfrom_accountid);
-    require(landdetails[_propertyID][trfrom_accountid].Registered_status);
+    require(msg.sender == trfrom_accountid);
+    //require(landdetails[_propertyID][trfrom_accountid].Registered_status);
     require(landdetails[_propertyID][trfrom_accountid].Activestatus);
     //    LandDetails memory tempLandDetails;
     // tempLandDetails = landdetails[_propertyID][trfrom_accountid];
@@ -115,7 +115,7 @@ mapping(
     //loading previous owner for this particular account 
     landdetails[_propertyID][trto_accountid].PreviousOwnerID = landdetails[_propertyID][trfrom_accountid].AccountID; 
     //require check whether tha land is properly transfered 
-    require(landdetails[_propertyID][trto_accountid].Activestatus);
+    //require(landdetails[_propertyID][trto_accountid].Activestatus);
     emit TransferOwnerLog(
             landdetails[_propertyID][trto_accountid].PropertyID, 
             landdetails[_propertyID][trto_accountid].AccountID,
